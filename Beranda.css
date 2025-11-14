@@ -168,7 +168,7 @@ footer {
   background: #0078ff;
   color: white;
   text-align: center;
-  padding: 15px 0;
+  padding: 15px 35px;
   margin-top: 60px;
   font-size: 14px;
 }
@@ -190,3 +190,4 @@ footer {
 #scrollTopBtn:hover {
   background-color: #005fcc;
 }
+
