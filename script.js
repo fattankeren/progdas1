@@ -1,33 +1,39 @@
-// biar tombol landing menjadi smooth
-const learnBtn = document.querySelector('.btn[href ="#testimoni"]')
-if (learnBtn) {
-    learnBtn.addEventListener("click", e => {
-        e.preventDefault();
-        const target = document.querySelector("#testimoni")
+// Use more compatible declarations (var) to avoid older-browser syntax errors
+var learnbtn = document.querySelector('.btn[href="#testimoni"]');
+if (learnbtn) {
+    learnbtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        var target = document.querySelector("#testimoni");
         if (target) {
-            target.scrollIntoView({behavior: "smooth"})
+            target.scrollIntoView({ behavior: "smooth" });
         }
-    })
+    }); 
 }
 
-//  notifikasi setelah submit dlam kotak form
-const form = document.querySelector(".contact-form")
-if (form){
-    form.addEventListener("submit", e => {
+var form = document.querySelector(".contact-form");
+if (form) {
+    form.addEventListener("submit", function(e) {
         e.preventDefault();
-        alert("Pesan berhasil terkirim")
-        form.reset();
-    })
+        alert("Pesan Berhasil Terkirim!");
+
+        try {
+            form.reset();   
+        } catch (err) {
+            
+            console.error('Form reset gagal:', err);
+        }
+    });
 }
 
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.onscroll = function() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 200) {
+window.onscroll = () => {
+    if(document.documentElement.scrollTop > 200) {
+        scrollTopBtn.style.display = "block";
     } else {
         scrollTopBtn.style.display = "none";
     }
 }
 
 scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });
